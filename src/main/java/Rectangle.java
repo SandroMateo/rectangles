@@ -14,4 +14,12 @@ public class Rectangle {
       return false;
     }
   }
+
+  public boolean isSquare(int length, int width){
+    if (length == width) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
