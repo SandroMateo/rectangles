@@ -2,34 +2,38 @@ import org.junit.*;
 import static org.junit.Assert.*;
 
 public class RectangleTest {
+  private Rectangle firstRectangle;
+  private Rectangle secondRectangle;
+
+  @Before
+  public void initialize() {
+    firstRectangle = new Rectangle(3,3);
+    secondRectangle = new Rectangle(17,17);
+  }
 
   @Test
   public void isSquare_instantiatesRectangleObject() {
-    Rectangle testObj = new Rectangle(3,4);
-    assertEquals(true, testObj instanceof Rectangle);
+    assertEquals(true, firstRectangle instanceof Rectangle);
+  }
+
+  @Test
+  public void getWidth_returnsWidth_int() {
+    assertEquals(3, firstRectangle.getWidth());
+  }
+
+  @Test
+  public void getLength_returnsLength_int() {
+    assertEquals(3, firstRectangle.getLength());
   }
 
   @Test
   public void isSquare_comparesLengthAndWidthOfAQuadrilateral_true(){
-    Rectangle testObj = new Rectangle(4,4);
-    assertEquals(true, testObj.isSquare());
+    assertEquals(true, firstRectangle.isSquare());
   }
 
   @Test
-  public void isSquare_comparesLengthAndWidthOfAQuadrilateral_false(){
-    Rectangle testObj = new Rectangle(3,4);
-    assertEquals(false, testObj.isSquare());
-  }
-
-  @Test
-  public void isSquareOverloaded_comparesLengthAndWidthOfAQuadrilateral_true(){
-    Rectangle testObj = new Rectangle(4,4);
-    assertEquals(true, testObj.isSquare(5,5));
-  }
-
-  @Test
-  public void isSquareOverloaded_comparesLengthAndWidthOfAQuadrilateral_false(){
-    Rectangle testObj = new Rectangle(4,4);
-    assertEquals(false, testObj.isSquare(3,5));
+  public void all_ReturnsAllInstancesOfRectangle_true() {
+    assertTrue(Rectangle.all().contains(firstRectangle));
+    assertTrue(Rectangle.all().contains(secondRectangle));
   }
 }
